@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  webapp:
+    container_name: powerpulse_sports_app
+    reestart: always
+    build: .
+    ports:
+      -"5000:3000"
+    links:
+    - database
+  database:
+  container_name: powerpulse_sports_db
+  image: mongo
+  ports:
+    - "27019:27017"
