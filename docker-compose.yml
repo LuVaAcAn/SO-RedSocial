@@ -9,6 +9,8 @@ services:
       -"5000:3000"
     links:
     - database
+    volumes:
+      -.:/usr/src/app
   database:
   container_name: powerpulse_sports_db
   image: mongo

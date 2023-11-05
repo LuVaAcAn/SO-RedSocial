@@ -10,11 +10,11 @@ import cartRouter from './routes/cart-routes.js';
 
 const app = express();
 app.use(express.json());
-app.use("/api/user", userRouter);
-app.use("/api/product", productRouter);
-app.use("/api/comment", commentRouter);
-app.use("/api/order", orderRouter);
-app.use("/api/cart", cartRouter);
+app.use("/user", userRouter);
+app.use("/", productRouter);
+app.use("/", commentRouter);
+app.use("/", orderRouter);
+app.use("/", cartRouter);
 
 mongoose
     .connect('mongodb://localhost:27017/powerpulse_sports_db')

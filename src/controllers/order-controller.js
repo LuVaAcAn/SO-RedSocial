@@ -13,7 +13,8 @@ export const createOrder = async (req, res) => {
         await newOrder.save();
         res.status(201).json(newOrder);
     } catch (error) {
-        res.status(500).json({ message: "No se pudo crear el pedido." });
+        console.error(error);
+        res.status(500).json({ message: "No se pudo crear el pedido. Error: " + error.message });
     }
 };
 
@@ -22,6 +23,7 @@ export const getOrdersByUser = async (req, res) => {
         const orders = await Order.find({ user: req.user._id });
         res.status(200).json(orders);
     } catch (error) {
-        res.status(500).json({ message: "No se pudieron obtener los pedidos." });
+        console.error(error);
+        res.status(500).json({ message: "No se pudieron obtener los pedidos. Error: " + error.message });
     }
 };
